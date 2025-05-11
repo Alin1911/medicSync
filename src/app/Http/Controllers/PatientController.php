@@ -11,35 +11,49 @@ use Inertia\Inertia;
 
 class PatientController extends Controller
 {
-public function index()
+    public function index()
+    {
+        $patients = auth()->user()->patients()->get();
+        return Inertia::render('Medic/Patients/Index', [
+            'patients' => $patients,
+        ]);
+    }
+
+    public function create()
+    {
+        return Inertia::render('Medic/Patients/Create');
+    }
+
+    public function show(User $patient)
 {
-    $patients = auth()->user()->patients()->get();
-    return Inertia::render('Medic/Patients/Index', [
-        'patients' => $patients,
+    return Inertia::render('Medic/Patients/Show', [
+        'patient' => $patient,
     ]);
 }
 
-public function create()
+public function edit(User $patient)
 {
-    return Inertia::render('Medic/Patients/Create');
+    return Inertia::render('Medic/Patients/Edit', [
+        'patient' => $patient,
+    ]);
 }
 
-public function store(Request $request)
-{
-    $data = $request->validate([
-        'name' => 'required|string|max:255',
-        'email' => 'required|email|unique:users',
-        'password' => 'required|string|min:6|confirmed'
-    ]);
+    public function store(Request $request)
+    {
+        $data = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|string|min:6|confirmed'
+        ]);
 
-    $patient = User::create([
-        'name' => $data['name'],
-        'email' => $data['email'],
-        'password' => Hash::make($data['password']),
-    ]);
+        $patient = User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password']),
+        ]);
 
-    $patient->assignRole('patient');
+        $patient->assignRole('patient');
 
-    return redirect()->route('medic.patients.index');
-}
+        return redirect()->route('medic.patients.index');
+    }
 }

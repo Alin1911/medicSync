@@ -32,6 +32,14 @@ class PrescriptionController extends Controller
         ]);
     }
 
+    public function show(Prescription $prescription)
+{
+    $prescription->load('patient', 'medications');
+    return Inertia::render('Medic/Prescriptions/Show', [
+        'prescription' => $prescription,
+    ]);
+}
+
     public function store(Request $request)
     {
         $data = $request->validate([

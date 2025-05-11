@@ -28,6 +28,9 @@ export default function PrescriptionsIndex({ prescriptions }) {
                                 <th className="border-b px-4 py-2 text-left">
                                     Medicamente
                                 </th>
+                                <th className="border-b px-4 py-2 text-left">
+                                    Acțiuni
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -46,6 +49,17 @@ export default function PrescriptionsIndex({ prescriptions }) {
                                         {(p.medications ?? [])
                                             .map((m) => m.nume)
                                             .join(', ') || '—'}
+                                    </td>
+                                    <td className="space-x-2 px-4 py-2">
+                                        <Link
+                                            href={route(
+                                                'medic.prescriptions.show',
+                                                p.id,
+                                            )}
+                                            className="text-sm text-blue-600 hover:underline"
+                                        >
+                                            Vezi
+                                        </Link>
                                     </td>
                                 </tr>
                             ))}

@@ -1,5 +1,5 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 
 export default function Dashboard({ patients, prescriptions }) {
     return (
@@ -23,6 +23,9 @@ export default function Dashboard({ patients, prescriptions }) {
                                     <th className="border-b px-4 py-2 text-left">
                                         Email
                                     </th>
+                                    <th className="border-b px-4 py-2 text-left">
+                                        Acțiuni
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -33,6 +36,26 @@ export default function Dashboard({ patients, prescriptions }) {
                                     >
                                         <td className="px-4 py-2">{p.name}</td>
                                         <td className="px-4 py-2">{p.email}</td>
+                                        <td className="space-x-2 px-4 py-2">
+                                            <Link
+                                                href={route(
+                                                    'medic.patients.edit',
+                                                    p.id,
+                                                )}
+                                                className="text-sm text-blue-600 hover:underline"
+                                            >
+                                                Editează
+                                            </Link>
+                                            <Link
+                                                href={route(
+                                                    'medic.patients.show',
+                                                    p.id,
+                                                )}
+                                                className="text-sm text-gray-700 hover:underline"
+                                            >
+                                                Vezi
+                                            </Link>
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -52,6 +75,9 @@ export default function Dashboard({ patients, prescriptions }) {
                                     <th className="border-b px-4 py-2 text-left">
                                         Număr medicamente
                                     </th>
+                                    <th className="border-b px-4 py-2 text-left">
+                                        Acțiuni
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,6 +93,17 @@ export default function Dashboard({ patients, prescriptions }) {
                                             {Array.isArray(p.medications)
                                                 ? p.medications.length
                                                 : 0}
+                                        </td>
+                                        <td className="space-x-2 px-4 py-2">
+                                            <Link
+                                                href={route(
+                                                    'medic.prescriptions.show',
+                                                    p.id,
+                                                )}
+                                                className="text-sm text-gray-700 hover:underline"
+                                            >
+                                                Vezi
+                                            </Link>
                                         </td>
                                     </tr>
                                 ))}

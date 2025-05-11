@@ -25,6 +25,9 @@ export default function PatientsIndex({ patients }) {
                                 <th className="border-b px-4 py-2 text-left">
                                     Email
                                 </th>
+                                <th className="border-b px-4 py-2 text-left">
+                                    Acțiuni
+                                </th>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,6 +38,26 @@ export default function PatientsIndex({ patients }) {
                                 >
                                     <td className="px-4 py-2">{p.name}</td>
                                     <td className="px-4 py-2">{p.email}</td>
+                                    <td className="space-x-2 px-4 py-2">
+                                        <Link
+                                            href={route(
+                                                'medic.patients.edit',
+                                                p.id,
+                                            )}
+                                            className="text-sm text-blue-600 hover:underline"
+                                        >
+                                            Editează
+                                        </Link>
+                                        <Link
+                                            href={route(
+                                                'medic.patients.show',
+                                                p.id,
+                                            )}
+                                            className="text-sm text-gray-700 hover:underline"
+                                        >
+                                            Vezi
+                                        </Link>
+                                    </td>
                                 </tr>
                             ))}
                         </tbody>
