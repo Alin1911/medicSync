@@ -9,12 +9,11 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    // database/migrations/xxxx_add_cnp_to_users_table.php
+    public function up()
     {
-        Schema::create('oauth_personal_access_clients', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->unsignedBigInteger('client_id');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->string('cnp')->nullable()->after('email')->unique();
         });
     }
 
@@ -23,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('oauth_personal_access_clients');
+        Schema::table('users', function (Blueprint $table) {
+            //
+        });
     }
 };

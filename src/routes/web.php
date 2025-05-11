@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\MedicDashboardController;
+use App\Http\Controllers\PatientController;
+use App\Http\Controllers\PrescriptionController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -22,6 +25,20 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::middleware(['auth', 'role:medic'])->prefix('medic')->name('medic.')->group(function () {
+
+    Route::get('/dashboard', [MedicDashboardController::class, 'index'])->name('dashboard');
+
+    Route::get('/patients', [PatientController::class, 'index'])->name('patients.index');
+    Route::get('/patients/create', [PatientController::class, 'create'])->name('patients.create');
+    Route::post('/patients', [PatientController::class, 'store'])->name('patients.store');
+
+    Route::get('/prescriptions', [PrescriptionController::class, 'index'])->name('prescriptions.index');
+    Route::get('/prescriptions/create', [PrescriptionController::class, 'create'])->name('prescriptions.create');
+    Route::post('/prescriptions', [PrescriptionController::class, 'store'])->name('prescriptions.store');
+    Route::get('/prescriptions/{prescription}', [PrescriptionController::class, 'show'])->name('prescriptions.show');
 });
 
 require __DIR__.'/auth.php';

@@ -23,5 +23,15 @@ class AppServiceProvider extends ServiceProvider
     {
         Vite::prefetch(concurrency: 3);
         Passport::enablePasswordGrant();
+        \Inertia\Inertia::share([
+            'auth' => fn() => [
+                'user' => auth()->check() ? [
+                    'id' => auth()->id(),
+                    'name' => auth()->user()->name,
+                    'email' => auth()->user()->email,
+                    'roles' => auth()->user()->getRoleNames(),
+                ] : null,
+            ],
+        ]);
     }
 }
