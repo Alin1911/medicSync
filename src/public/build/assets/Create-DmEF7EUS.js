@@ -1,6 +1,6 @@
-import { v as b, j as e, $ as j } from './app-m0j9LaUS.js';
-import { A as v } from './AuthenticatedLayout-u8i98N5I.js';
-import './transition-u05Ep7ua.js';
+import { v as b, j as e, $ as j } from './app-C9_0fZuZ.js';
+import { A as v } from './AuthenticatedLayout-iHc91eWH.js';
+import './transition-jbR-Iu7L.js';
 function y({ patients: c, medications: o }) {
     const {
             data: t,
@@ -22,7 +22,7 @@ function y({ patients: c, medications: o }) {
             });
         },
         p = (a) => {
-            a.preventDefault(), m(route('medic.prescriptions.store'));
+            a.preventDefault(), m(route('prescriptions.store'));
         };
     return e.jsxs(v, {
         children: [

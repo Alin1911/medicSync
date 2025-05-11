@@ -74,6 +74,6 @@ class PrescriptionController extends Controller
             'valid' => true
         ]);
 
-        return redirect()->route('medic.prescriptions.index');
+        return redirect()->route('prescriptions.index');
     }
 }

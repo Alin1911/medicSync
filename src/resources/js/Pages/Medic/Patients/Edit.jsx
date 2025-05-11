@@ -9,7 +9,7 @@ export default function EditPatient({ patient }) {
 
     const submit = (e) => {
         e.preventDefault();
-        put(route('medic.patients.update', patient.id));
+        put(route('patients.update', patient.id));
     };
 
     return (

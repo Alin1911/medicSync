@@ -1,11 +1,11 @@
-import { j as e, Y as i, $ as r } from './app-m0j9LaUS.js';
+import { j as e, Y as i, $ as r } from './app-C9_0fZuZ.js';
 function n({ auth: t }) {
     return e.jsxs(e.Fragment, {
         children: [
             e.jsx(r, { title: 'Bine ai venit la MedicSync' }),
             e.jsx('div', {
                 className:
-                    'flex items-center justify-center min-h-screen px-6 bg-gradient-to-br from-blue-50 to-white',
+                    'flex min-h-screen items-center justify-center bg-gradient-to-br from-blue-50 to-white px-6',
                 children: e.jsxs('div', {
                     className: 'w-full max-w-4xl text-center',
                     children: [
@@ -13,7 +13,8 @@ function n({ auth: t }) {
                             className:
                                 'mb-4 text-4xl font-bold text-blue-700 sm:text-5xl',
                             children: [
-                                'Bine ai venit la ',
+                                'Bine ai venit la',
+                                ' ',
                                 e.jsx('span', {
                                     className: 'text-blue-900',
                                     children: 'MedicSync',
@@ -31,7 +32,7 @@ function n({ auth: t }) {
                                 ? e.jsx(i, {
                                       href: route('dashboard'),
                                       className:
-                                          'inline-block px-6 py-3 font-medium text-white transition bg-blue-700 rounded hover:bg-blue-800',
+                                          'inline-block rounded bg-blue-700 px-6 py-3 font-medium text-white transition hover:bg-blue-800',
                                       children: 'Intră în aplicație',
                                   })
                                 : e.jsxs(e.Fragment, {
@@ -39,13 +40,13 @@ function n({ auth: t }) {
                                           e.jsx(i, {
                                               href: route('login'),
                                               className:
-                                                  'inline-block px-6 py-3 font-medium text-white transition bg-blue-600 rounded hover:bg-blue-700',
+                                                  'inline-block rounded bg-blue-600 px-6 py-3 font-medium text-white transition hover:bg-blue-700',
                                               children: 'Autentificare',
                                           }),
                                           e.jsx(i, {
                                               href: route('register'),
                                               className:
-                                                  'inline-block px-6 py-3 font-medium text-blue-600 transition border border-blue-600 rounded hover:bg-blue-50',
+                                                  'inline-block rounded border border-blue-600 px-6 py-3 font-medium text-blue-600 transition hover:bg-blue-50',
                                               children: 'Creează cont',
                                           }),
                                       ],
@@ -57,7 +58,7 @@ function n({ auth: t }) {
                                 src: '/medic-dashboard-preview.jpg',
                                 alt: 'Preview MedicSync',
                                 className:
-                                    'w-full max-w-2xl mx-auto rounded shadow-lg',
+                                    'mx-auto w-full max-w-2xl rounded shadow-lg',
                             }),
                         }),
                     ],

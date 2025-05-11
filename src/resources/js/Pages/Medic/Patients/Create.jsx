@@ -11,7 +11,7 @@ export default function CreatePatient() {
 
     const submit = (e) => {
         e.preventDefault();
-        post(route('medic.patients.store'));
+        post(route('patients.store'));
     };
 
     return (

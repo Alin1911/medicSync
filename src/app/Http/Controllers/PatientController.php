@@ -54,6 +54,6 @@ public function edit(User $patient)
 
         $patient->assignRole('patient');
 
-        return redirect()->route('medic.patients.index');
+        return redirect()->route('patients.index');
     }
 }

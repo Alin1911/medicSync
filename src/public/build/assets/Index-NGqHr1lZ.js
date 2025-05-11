@@ -1,6 +1,6 @@
-import { j as e, $ as i, Y as t } from './app-m0j9LaUS.js';
-import { A as l } from './AuthenticatedLayout-u8i98N5I.js';
-import './transition-u05Ep7ua.js';
+import { j as e, $ as i, Y as t } from './app-C9_0fZuZ.js';
+import { A as l } from './AuthenticatedLayout-iHc91eWH.js';
+import './transition-jbR-Iu7L.js';
 function n({ prescriptions: r }) {
     return e.jsxs(l, {
         children: [
@@ -16,7 +16,7 @@ function n({ prescriptions: r }) {
                                 children: 'Rețete',
                             }),
                             e.jsx(t, {
-                                href: route('medic.prescriptions.create'),
+                                href: route('prescriptions.create'),
                                 className:
                                     'rounded bg-green-600 px-4 py-2 text-white hover:bg-green-700',
                                 children: '+ Creează rețetă',
@@ -94,7 +94,7 @@ function n({ prescriptions: r }) {
                                                             'space-x-2 px-4 py-2',
                                                         children: e.jsx(t, {
                                                             href: route(
-                                                                'medic.prescriptions.show',
+                                                                'prescriptions.show',
                                                                 s.id,
                                                             ),
                                                             className:

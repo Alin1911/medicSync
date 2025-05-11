@@ -3,31 +3,31 @@ const __vite__mapDeps = (
     m = __vite__mapDeps,
     d = m.f ||
         (m.f = [
-            'assets/ConfirmPassword-Bu7szdFn.js',
-            'assets/TextInput-DRuKwFRc.js',
-            'assets/InputLabel-CBN4ffe9.js',
-            'assets/PrimaryButton-B0OyXFj4.js',
-            'assets/GuestLayout-BU7Ntrm_.js',
-            'assets/ForgotPassword-CV_pkLZL.js',
-            'assets/Login-CgmRnYtZ.js',
-            'assets/Register-BPwfj6XG.js',
-            'assets/ResetPassword-CgU79bbB.js',
-            'assets/VerifyEmail-Cke_GlR-.js',
-            'assets/Dashboard-DZxXUtkO.js',
-            'assets/AuthenticatedLayout-u8i98N5I.js',
-            'assets/transition-u05Ep7ua.js',
-            'assets/Dashboard-CPpEer8l.js',
-            'assets/Create-DiGSj-PR.js',
-            'assets/Edit-8QnL7WjA.js',
-            'assets/Index-CeQxeJu5.js',
-            'assets/Show-Dw-rtjmZ.js',
-            'assets/Create-u5dHmxsE.js',
-            'assets/Index-n3nl5hA-.js',
-            'assets/Show-DdSI9i__.js',
-            'assets/Edit-BfWIygfq.js',
-            'assets/DeleteUserForm-DB02QrZe.js',
-            'assets/UpdatePasswordForm-DqypcFz-.js',
-            'assets/UpdateProfileInformationForm-LsnFvtsl.js',
+            'assets/ConfirmPassword-BRrENQ8i.js',
+            'assets/TextInput-DBuYv2qd.js',
+            'assets/InputLabel-CU5mzmHP.js',
+            'assets/PrimaryButton-DfAnq1os.js',
+            'assets/GuestLayout-5WNKVkAw.js',
+            'assets/ForgotPassword-v4Tjp5o2.js',
+            'assets/Login-Cx4CETHO.js',
+            'assets/Register-DGvjX1E4.js',
+            'assets/ResetPassword-Dzzy5LRH.js',
+            'assets/VerifyEmail-CKy7PE9D.js',
+            'assets/Dashboard-C381HJY7.js',
+            'assets/AuthenticatedLayout-iHc91eWH.js',
+            'assets/transition-jbR-Iu7L.js',
+            'assets/Dashboard-DnXJkMxh.js',
+            'assets/Create-ByUzufb_.js',
+            'assets/Edit-BeXRgL89.js',
+            'assets/Index-DmK7jL18.js',
+            'assets/Show-DSLGVTyC.js',
+            'assets/Create-DmEF7EUS.js',
+            'assets/Index-NGqHr1lZ.js',
+            'assets/Show-u1QwNi-G.js',
+            'assets/Edit-CpkEl_eS.js',
+            'assets/DeleteUserForm-CX3VeJay.js',
+            'assets/UpdatePasswordForm-DmyH7BED.js',
+            'assets/UpdateProfileInformationForm-B5oujNsA.js',
         ]),
 ) => i.map((i) => d[i]);
 function Gm(n, i) {
@@ -17709,92 +17709,92 @@ Ow({
             Object.assign({
                 './Pages/Auth/ConfirmPassword.jsx': () =>
                     Ge(
-                        () => import('./ConfirmPassword-Bu7szdFn.js'),
+                        () => import('./ConfirmPassword-BRrENQ8i.js'),
                         __vite__mapDeps([0, 1, 2, 3, 4]),
                     ),
                 './Pages/Auth/ForgotPassword.jsx': () =>
                     Ge(
-                        () => import('./ForgotPassword-CV_pkLZL.js'),
+                        () => import('./ForgotPassword-v4Tjp5o2.js'),
                         __vite__mapDeps([5, 1, 3, 4]),
                     ),
                 './Pages/Auth/Login.jsx': () =>
                     Ge(
-                        () => import('./Login-CgmRnYtZ.js'),
+                        () => import('./Login-Cx4CETHO.js'),
                         __vite__mapDeps([6, 1, 2, 3, 4]),
                     ),
                 './Pages/Auth/Register.jsx': () =>
                     Ge(
-                        () => import('./Register-BPwfj6XG.js'),
+                        () => import('./Register-DGvjX1E4.js'),
                         __vite__mapDeps([7, 1, 2, 3, 4]),
                     ),
                 './Pages/Auth/ResetPassword.jsx': () =>
                     Ge(
-                        () => import('./ResetPassword-CgU79bbB.js'),
+                        () => import('./ResetPassword-Dzzy5LRH.js'),
                         __vite__mapDeps([8, 1, 2, 3, 4]),
                     ),
                 './Pages/Auth/VerifyEmail.jsx': () =>
                     Ge(
-                        () => import('./VerifyEmail-Cke_GlR-.js'),
+                        () => import('./VerifyEmail-CKy7PE9D.js'),
                         __vite__mapDeps([9, 3, 4]),
                     ),
                 './Pages/Dashboard.jsx': () =>
                     Ge(
-                        () => import('./Dashboard-DZxXUtkO.js'),
+                        () => import('./Dashboard-C381HJY7.js'),
                         __vite__mapDeps([10, 11, 12]),
                     ),
                 './Pages/Medic/Dashboard.jsx': () =>
                     Ge(
-                        () => import('./Dashboard-CPpEer8l.js'),
+                        () => import('./Dashboard-DnXJkMxh.js'),
                         __vite__mapDeps([13, 11, 12]),
                     ),
                 './Pages/Medic/Patients/Create.jsx': () =>
                     Ge(
-                        () => import('./Create-DiGSj-PR.js'),
+                        () => import('./Create-ByUzufb_.js'),
                         __vite__mapDeps([14, 11, 12]),
                     ),
                 './Pages/Medic/Patients/Edit.jsx': () =>
                     Ge(
-                        () => import('./Edit-8QnL7WjA.js'),
+                        () => import('./Edit-BeXRgL89.js'),
                         __vite__mapDeps([15, 11, 12]),
                     ),
                 './Pages/Medic/Patients/Index.jsx': () =>
                     Ge(
-                        () => import('./Index-CeQxeJu5.js'),
+                        () => import('./Index-DmK7jL18.js'),
                         __vite__mapDeps([16, 11, 12]),
                     ),
                 './Pages/Medic/Patients/Show.jsx': () =>
                     Ge(
-                        () => import('./Show-Dw-rtjmZ.js'),
+                        () => import('./Show-DSLGVTyC.js'),
                         __vite__mapDeps([17, 11, 12]),
                     ),
                 './Pages/Medic/Prescriptions/Create.jsx': () =>
                     Ge(
-                        () => import('./Create-u5dHmxsE.js'),
+                        () => import('./Create-DmEF7EUS.js'),
                         __vite__mapDeps([18, 11, 12]),
                     ),
                 './Pages/Medic/Prescriptions/Index.jsx': () =>
                     Ge(
-                        () => import('./Index-n3nl5hA-.js'),
+                        () => import('./Index-NGqHr1lZ.js'),
                         __vite__mapDeps([19, 11, 12]),
                     ),
                 './Pages/Medic/Prescriptions/Show.jsx': () =>
                     Ge(
-                        () => import('./Show-DdSI9i__.js'),
+                        () => import('./Show-u1QwNi-G.js'),
                         __vite__mapDeps([20, 11, 12]),
                     ),
                 './Pages/Profile/Edit.jsx': () =>
                     Ge(
-                        () => import('./Edit-BfWIygfq.js'),
+                        () => import('./Edit-CpkEl_eS.js'),
                         __vite__mapDeps([21, 11, 12, 22, 1, 2, 23, 3, 24]),
                     ),
                 './Pages/Profile/Partials/DeleteUserForm.jsx': () =>
                     Ge(
-                        () => import('./DeleteUserForm-DB02QrZe.js'),
+                        () => import('./DeleteUserForm-CX3VeJay.js'),
                         __vite__mapDeps([22, 1, 2, 12]),
                     ),
                 './Pages/Profile/Partials/UpdatePasswordForm.jsx': () =>
                     Ge(
-                        () => import('./UpdatePasswordForm-DqypcFz-.js'),
+                        () => import('./UpdatePasswordForm-DmyH7BED.js'),
                         __vite__mapDeps([23, 1, 2, 3, 12]),
                     ),
                 './Pages/Profile/Partials/UpdateProfileInformationForm.jsx':
@@ -17802,12 +17802,12 @@ Ow({
                         Ge(
                             () =>
                                 import(
-                                    './UpdateProfileInformationForm-LsnFvtsl.js'
+                                    './UpdateProfileInformationForm-B5oujNsA.js'
                                 ),
                             __vite__mapDeps([24, 1, 2, 3, 12]),
                         ),
                 './Pages/Welcome.jsx': () =>
-                    Ge(() => import('./Welcome-DL4ECOLA.js'), []),
+                    Ge(() => import('./Welcome-DC68l1AK.js'), []),
             }),
         ),
     setup({ el: n, App: i, props: l }) {

@@ -1,6 +1,6 @@
-import { Y as a, j as e, $ as l } from './app-m0j9LaUS.js';
-import { A as i } from './AuthenticatedLayout-u8i98N5I.js';
-import './transition-u05Ep7ua.js';
+import { Y as a, j as e, $ as l } from './app-C9_0fZuZ.js';
+import { A as i } from './AuthenticatedLayout-iHc91eWH.js';
+import './transition-jbR-Iu7L.js';
 function n({ patients: t, prescriptions: r }) {
     return e.jsxs(i, {
         children: [
@@ -72,7 +72,7 @@ function n({ patients: t, prescriptions: r }) {
                                                                 children: [
                                                                     e.jsx(a, {
                                                                         href: route(
-                                                                            'medic.patients.edit',
+                                                                            'patients.edit',
                                                                             s.id,
                                                                         ),
                                                                         className:
@@ -82,7 +82,7 @@ function n({ patients: t, prescriptions: r }) {
                                                                     }),
                                                                     e.jsx(a, {
                                                                         href: route(
-                                                                            'medic.patients.show',
+                                                                            'patients.show',
                                                                             s.id,
                                                                         ),
                                                                         className:
@@ -171,7 +171,7 @@ function n({ patients: t, prescriptions: r }) {
                                                                     a,
                                                                     {
                                                                         href: route(
-                                                                            'medic.prescriptions.show',
+                                                                            'prescriptions.show',
                                                                             s.id,
                                                                         ),
                                                                         className:

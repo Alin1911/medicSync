@@ -39,7 +39,7 @@ export default function Dashboard({ patients, prescriptions }) {
                                         <td className="space-x-2 px-4 py-2">
                                             <Link
                                                 href={route(
-                                                    'medic.patients.edit',
+                                                    'patients.edit',
                                                     p.id,
                                                 )}
                                                 className="text-sm text-blue-600 hover:underline"
@@ -48,7 +48,7 @@ export default function Dashboard({ patients, prescriptions }) {
                                             </Link>
                                             <Link
                                                 href={route(
-                                                    'medic.patients.show',
+                                                    'patients.show',
                                                     p.id,
                                                 )}
                                                 className="text-sm text-gray-700 hover:underline"
@@ -97,7 +97,7 @@ export default function Dashboard({ patients, prescriptions }) {
                                         <td className="space-x-2 px-4 py-2">
                                             <Link
                                                 href={route(
-                                                    'medic.prescriptions.show',
+                                                    'prescriptions.show',
                                                     p.id,
                                                 )}
                                                 className="text-sm text-gray-700 hover:underline"

@@ -1,6 +1,6 @@
-import { $ as d, j as e, v as n } from './app-m0j9LaUS.js';
-import { A as i } from './AuthenticatedLayout-u8i98N5I.js';
-import './transition-u05Ep7ua.js';
+import { $ as d, j as e, v as n } from './app-C9_0fZuZ.js';
+import { A as i } from './AuthenticatedLayout-iHc91eWH.js';
+import './transition-jbR-Iu7L.js';
 function c() {
     const {
             data: s,
@@ -9,7 +9,7 @@ function c() {
             processing: l,
         } = n({ name: '', email: '', password: '', password_confirmation: '' }),
         o = (a) => {
-            a.preventDefault(), r(route('medic.patients.store'));
+            a.preventDefault(), r(route('patients.store'));
         };
     return e.jsxs(i, {
         children: [

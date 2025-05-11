@@ -30,27 +30,25 @@ export default function AuthenticatedLayout({ header, children }) {
                                 {isMedic ? (
                                     <>
                                         <NavLink
-                                            href={route('medic.dashboard')}
+                                            href={route('dashboard')}
                                             active={route().current(
-                                                'medic.dashboard',
+                                                'dashboard',
                                             )}
                                         >
                                             Dashboard Medic
                                         </NavLink>
                                         <NavLink
-                                            href={route('medic.patients.index')}
+                                            href={route('patients.index')}
                                             active={route().current(
-                                                'medic.patients.index',
+                                                'patients.index',
                                             )}
                                         >
                                             Pacienți
                                         </NavLink>
                                         <NavLink
-                                            href={route(
-                                                'medic.prescriptions.index',
-                                            )}
+                                            href={route('prescriptions.index')}
                                             active={route().current(
-                                                'medic.prescriptions.index',
+                                                'prescriptions.index',
                                             )}
                                         >
                                             Rețete
@@ -165,23 +163,21 @@ export default function AuthenticatedLayout({ header, children }) {
                         {isMedic ? (
                             <>
                                 <ResponsiveNavLink
-                                    href={route('medic.dashboard')}
-                                    active={route().current('medic.dashboard')}
+                                    href={route('dashboard')}
+                                    active={route().current('dashboard')}
                                 >
                                     Dashboard Medic
                                 </ResponsiveNavLink>
                                 <ResponsiveNavLink
-                                    href={route('medic.patients.index')}
-                                    active={route().current(
-                                        'medic.patients.index',
-                                    )}
+                                    href={route('patients.index')}
+                                    active={route().current('patients.index')}
                                 >
                                     Pacienți
                                 </ResponsiveNavLink>
                                 <ResponsiveNavLink
-                                    href={route('medic.prescriptions.index')}
+                                    href={route('prescriptions.index')}
                                     active={route().current(
-                                        'medic.prescriptions.index',
+                                        'prescriptions.index',
                                     )}
                                 >
                                     Rețete

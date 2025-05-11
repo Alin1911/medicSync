@@ -1,8 +1,8 @@
-import { j as e, Y as s } from './app-m0j9LaUS.js';
+import { j as e, Y as s } from './app-C9_0fZuZ.js';
 function i({ children: t }) {
     return e.jsxs('div', {
         className:
-            'flex flex-col items-center min-h-screen pt-6 bg-gray-100 sm:justify-center sm:pt-0',
+            'flex min-h-screen flex-col items-center bg-gray-100 pt-6 sm:justify-center sm:pt-0',
         children: [
             e.jsx('div', {
                 children: e.jsx(s, {
@@ -14,7 +14,7 @@ function i({ children: t }) {
             }),
             e.jsx('div', {
                 className:
-                    'w-full px-6 py-4 mt-6 overflow-hidden bg-white shadow-md sm:max-w-md sm:rounded-lg',
+                    'mt-6 w-full overflow-hidden bg-white px-6 py-4 shadow-md sm:max-w-md sm:rounded-lg',
                 children: t,
             }),
         ],

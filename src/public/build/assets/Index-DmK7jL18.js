@@ -1,10 +1,10 @@
-import { j as e, $ as i, Y as t } from './app-m0j9LaUS.js';
-import { A as r } from './AuthenticatedLayout-u8i98N5I.js';
-import './transition-u05Ep7ua.js';
-function x({ patients: a }) {
-    return e.jsxs(r, {
+import { j as e, $ as r, Y as t } from './app-C9_0fZuZ.js';
+import { A as i } from './AuthenticatedLayout-iHc91eWH.js';
+import './transition-jbR-Iu7L.js';
+function c({ patients: a }) {
+    return e.jsxs(i, {
         children: [
-            e.jsx(i, { title: 'Pacienți' }),
+            e.jsx(r, { title: 'Pacienți' }),
             e.jsxs('div', {
                 className: 'mx-auto max-w-6xl p-6',
                 children: [
@@ -16,7 +16,7 @@ function x({ patients: a }) {
                                 children: 'Pacienți',
                             }),
                             e.jsx(t, {
-                                href: route('medic.patients.create'),
+                                href: route('patients.create'),
                                 className:
                                     'rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700',
                                 children: '+ Adaugă pacient',
@@ -72,7 +72,7 @@ function x({ patients: a }) {
                                                         children: [
                                                             e.jsx(t, {
                                                                 href: route(
-                                                                    'medic.patients.edit',
+                                                                    'patients.edit',
                                                                     s.id,
                                                                 ),
                                                                 className:
@@ -82,7 +82,7 @@ function x({ patients: a }) {
                                                             }),
                                                             e.jsx(t, {
                                                                 href: route(
-                                                                    'medic.patients.show',
+                                                                    'patients.show',
                                                                     s.id,
                                                                 ),
                                                                 className:
@@ -106,4 +106,4 @@ function x({ patients: a }) {
         ],
     });
 }
-export { x as default };
+export { c as default };

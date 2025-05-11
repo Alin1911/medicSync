@@ -9,7 +9,7 @@ export default function PrescriptionsIndex({ prescriptions }) {
                 <div className="mb-6 flex items-center justify-between">
                     <h1 className="text-2xl font-bold">Rețete</h1>
                     <Link
-                        href={route('medic.prescriptions.create')}
+                        href={route('prescriptions.create')}
                         className="rounded bg-green-600 px-4 py-2 text-white hover:bg-green-700"
                     >
                         + Creează rețetă
@@ -53,7 +53,7 @@ export default function PrescriptionsIndex({ prescriptions }) {
                                     <td className="space-x-2 px-4 py-2">
                                         <Link
                                             href={route(
-                                                'medic.prescriptions.show',
+                                                'prescriptions.show',
                                                 p.id,
                                             )}
                                             className="text-sm text-blue-600 hover:underline"

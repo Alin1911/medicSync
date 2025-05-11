@@ -25,7 +25,7 @@ export default function CreatePrescription({ patients, medications }) {
 
     const submit = (e) => {
         e.preventDefault();
-        post(route('medic.prescriptions.store'));
+        post(route('prescriptions.store'));
     };
 
     return (

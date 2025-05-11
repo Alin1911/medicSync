@@ -1,21 +1,21 @@
-import { j as e, q as g, Y as h, r as l } from './app-m0j9LaUS.js';
-import { z as p } from './transition-u05Ep7ua.js';
-const u = l.createContext(),
-    n = ({ children: r }) => {
-        const [s, t] = l.useState(!1),
-            i = () => {
+import { r as c, j as e, q as g, Y as h } from './app-C9_0fZuZ.js';
+import { z as p } from './transition-jbR-Iu7L.js';
+const m = c.createContext(),
+    i = ({ children: r }) => {
+        const [s, t] = c.useState(!1),
+            n = () => {
                 t((o) => !o);
             };
-        return e.jsx(u.Provider, {
-            value: { open: s, setOpen: t, toggleOpen: i },
+        return e.jsx(m.Provider, {
+            value: { open: s, setOpen: t, toggleOpen: n },
             children: e.jsx('div', { className: 'relative', children: r }),
         });
     },
     f = ({ children: r }) => {
-        const { open: s, setOpen: t, toggleOpen: i } = l.useContext(u);
+        const { open: s, setOpen: t, toggleOpen: n } = c.useContext(m);
         return e.jsxs(e.Fragment, {
             children: [
-                e.jsx('div', { onClick: i, children: r }),
+                e.jsx('div', { onClick: n, children: r }),
                 s &&
                     e.jsx('div', {
                         className: 'fixed inset-0 z-40',
@@ -28,9 +28,9 @@ const u = l.createContext(),
         align: r = 'right',
         width: s = '48',
         contentClasses: t = 'py-1 bg-white',
-        children: i,
+        children: n,
     }) => {
-        const { open: o, setOpen: m } = l.useContext(u);
+        const { open: o, setOpen: u } = c.useContext(m);
         let a = 'origin-top';
         r === 'left'
             ? (a = 'ltr:origin-top-left rtl:origin-top-right start-0')
@@ -50,12 +50,12 @@ const u = l.createContext(),
                     leaveTo: 'opacity-0 scale-95',
                     children: e.jsx('div', {
                         className: `absolute z-50 mt-2 rounded-md shadow-lg ${a} ${d}`,
-                        onClick: () => m(!1),
+                        onClick: () => u(!1),
                         children: e.jsx('div', {
                             className:
                                 'rounded-md ring-1 ring-black ring-opacity-5 ' +
                                 t,
-                            children: i,
+                            children: n,
                         }),
                     }),
                 }),
@@ -70,12 +70,12 @@ const u = l.createContext(),
                 r,
             children: s,
         });
-n.Trigger = f;
-n.Content = j;
-n.Link = b;
-function x({ active: r = !1, className: s = '', children: t, ...i }) {
+i.Trigger = f;
+i.Content = j;
+i.Link = b;
+function x({ active: r = !1, className: s = '', children: t, ...n }) {
     return e.jsx(h, {
-        ...i,
+        ...n,
         className:
             'inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium leading-5 transition duration-150 ease-in-out focus:outline-none ' +
             (r
@@ -85,9 +85,9 @@ function x({ active: r = !1, className: s = '', children: t, ...i }) {
         children: t,
     });
 }
-function c({ active: r = !1, className: s = '', children: t, ...i }) {
+function l({ active: r = !1, className: s = '', children: t, ...n }) {
     return e.jsx(h, {
-        ...i,
+        ...n,
         className: `flex w-full items-start border-l-4 py-2 pe-4 ps-3 ${r ? 'border-indigo-400 bg-indigo-50 text-indigo-700 focus:border-indigo-700 focus:bg-indigo-100 focus:text-indigo-800' : 'border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 focus:border-gray-300 focus:bg-gray-50 focus:text-gray-800'} text-base font-medium transition duration-150 ease-in-out focus:outline-none ${s}`,
         children: t,
     });
@@ -96,11 +96,11 @@ function N({ header: r, children: s }) {
     var a;
     const t = g().props.auth.user;
     console.log(t);
-    const i =
+    const n =
             (a = t == null ? void 0 : t.roles) == null
                 ? void 0
                 : a.some((d) => d.name === 'medic'),
-        [o, m] = l.useState(!1);
+        [o, u] = c.useState(!1);
     return e.jsxs('div', {
         className: 'min-h-screen bg-gray-100',
         children: [
@@ -128,35 +128,35 @@ function N({ header: r, children: s }) {
                                         e.jsx('div', {
                                             className:
                                                 'hidden space-x-8 sm:-my-px sm:ms-10 sm:flex',
-                                            children: i
+                                            children: n
                                                 ? e.jsxs(e.Fragment, {
                                                       children: [
                                                           e.jsx(x, {
                                                               href: route(
-                                                                  'medic.dashboard',
+                                                                  'dashboard',
                                                               ),
                                                               active: route().current(
-                                                                  'medic.dashboard',
+                                                                  'dashboard',
                                                               ),
                                                               children:
                                                                   'Dashboard Medic',
                                                           }),
                                                           e.jsx(x, {
                                                               href: route(
-                                                                  'medic.patients.index',
+                                                                  'patients.index',
                                                               ),
                                                               active: route().current(
-                                                                  'medic.patients.index',
+                                                                  'patients.index',
                                                               ),
                                                               children:
                                                                   'Pacienți',
                                                           }),
                                                           e.jsx(x, {
                                                               href: route(
-                                                                  'medic.prescriptions.index',
+                                                                  'prescriptions.index',
                                                               ),
                                                               active: route().current(
-                                                                  'medic.prescriptions.index',
+                                                                  'prescriptions.index',
                                                               ),
                                                               children:
                                                                   'Rețete',
@@ -178,9 +178,9 @@ function N({ header: r, children: s }) {
                                         'hidden sm:ms-6 sm:flex sm:items-center',
                                     children: e.jsx('div', {
                                         className: 'relative ms-3',
-                                        children: e.jsxs(n, {
+                                        children: e.jsxs(i, {
                                             children: [
-                                                e.jsx(n.Trigger, {
+                                                e.jsx(i.Trigger, {
                                                     children: e.jsx('span', {
                                                         className:
                                                             'inline-flex rounded-md',
@@ -219,15 +219,15 @@ function N({ header: r, children: s }) {
                                                         ),
                                                     }),
                                                 }),
-                                                e.jsxs(n.Content, {
+                                                e.jsxs(i.Content, {
                                                     children: [
-                                                        e.jsx(n.Link, {
+                                                        e.jsx(i.Link, {
                                                             href: route(
                                                                 'profile.edit',
                                                             ),
                                                             children: 'Profile',
                                                         }),
-                                                        e.jsx(n.Link, {
+                                                        e.jsx(i.Link, {
                                                             href: route(
                                                                 'logout',
                                                             ),
@@ -245,7 +245,7 @@ function N({ header: r, children: s }) {
                                     className:
                                         '-me-2 flex items-center sm:hidden',
                                     children: e.jsx('button', {
-                                        onClick: () => m((d) => !d),
+                                        onClick: () => u((d) => !d),
                                         className:
                                             'inline-flex items-center justify-center rounded-md p-2 text-gray-400 transition duration-150 ease-in-out hover:bg-gray-100 hover:text-gray-500 focus:bg-gray-100 focus:text-gray-500 focus:outline-none',
                                         children: e.jsxs('svg', {
@@ -284,39 +284,35 @@ function N({ header: r, children: s }) {
                         children: [
                             e.jsx('div', {
                                 className: 'space-y-1 pb-3 pt-2',
-                                children: i
+                                children: n
                                     ? e.jsxs(e.Fragment, {
                                           children: [
-                                              e.jsx(c, {
-                                                  href: route(
-                                                      'medic.dashboard',
-                                                  ),
+                                              e.jsx(l, {
+                                                  href: route('dashboard'),
                                                   active: route().current(
-                                                      'medic.dashboard',
+                                                      'dashboard',
                                                   ),
                                                   children: 'Dashboard Medic',
                                               }),
-                                              e.jsx(c, {
-                                                  href: route(
-                                                      'medic.patients.index',
-                                                  ),
+                                              e.jsx(l, {
+                                                  href: route('patients.index'),
                                                   active: route().current(
-                                                      'medic.patients.index',
+                                                      'patients.index',
                                                   ),
                                                   children: 'Pacienți',
                                               }),
-                                              e.jsx(c, {
+                                              e.jsx(l, {
                                                   href: route(
-                                                      'medic.prescriptions.index',
+                                                      'prescriptions.index',
                                                   ),
                                                   active: route().current(
-                                                      'medic.prescriptions.index',
+                                                      'prescriptions.index',
                                                   ),
                                                   children: 'Rețete',
                                               }),
                                           ],
                                       })
-                                    : e.jsx(c, {
+                                    : e.jsx(l, {
                                           href: route('dashboard'),
                                           active: route().current('dashboard'),
                                           children: 'Dashboard',
@@ -343,11 +339,11 @@ function N({ header: r, children: s }) {
                                     e.jsxs('div', {
                                         className: 'mt-3 space-y-1',
                                         children: [
-                                            e.jsx(c, {
+                                            e.jsx(l, {
                                                 href: route('profile.edit'),
                                                 children: 'Profile',
                                             }),
-                                            e.jsx(c, {
+                                            e.jsx(l, {
                                                 method: 'post',
                                                 href: route('logout'),
                                                 as: 'button',

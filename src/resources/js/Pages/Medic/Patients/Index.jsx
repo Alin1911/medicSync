@@ -9,7 +9,7 @@ export default function PatientsIndex({ patients }) {
                 <div className="mb-6 flex items-center justify-between">
                     <h1 className="text-2xl font-bold">Pacienți</h1>
                     <Link
-                        href={route('medic.patients.create')}
+                        href={route('patients.create')}
                         className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
                     >
                         + Adaugă pacient
@@ -40,19 +40,13 @@ export default function PatientsIndex({ patients }) {
                                     <td className="px-4 py-2">{p.email}</td>
                                     <td className="space-x-2 px-4 py-2">
                                         <Link
-                                            href={route(
-                                                'medic.patients.edit',
-                                                p.id,
-                                            )}
+                                            href={route('patients.edit', p.id)}
                                             className="text-sm text-blue-600 hover:underline"
                                         >
                                             Editează
                                         </Link>
                                         <Link
-                                            href={route(
-                                                'medic.patients.show',
-                                                p.id,
-                                            )}
+                                            href={route('patients.show', p.id)}
                                             className="text-sm text-gray-700 hover:underline"
                                         >
                                             Vezi
