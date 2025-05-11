@@ -1,0 +1,278 @@
+{
+  "_AuthenticatedLayout--1Ug8FiI.js": {
+    "file": "assets/AuthenticatedLayout--1Ug8FiI.js",
+    "name": "AuthenticatedLayout",
+    "imports": [
+      "resources/js/app.jsx",
+      "_transition-BE4MmVKm.js"
+    ]
+  },
+  "_GuestLayout-Bj4KKYO7.js": {
+    "file": "assets/GuestLayout-Bj4KKYO7.js",
+    "name": "GuestLayout",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_InputLabel-DOmDDI9w.js": {
+    "file": "assets/InputLabel-DOmDDI9w.js",
+    "name": "InputLabel",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_PrimaryButton-D-YA_JHL.js": {
+    "file": "assets/PrimaryButton-D-YA_JHL.js",
+    "name": "PrimaryButton",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_TextInput-BBgGpk2F.js": {
+    "file": "assets/TextInput-BBgGpk2F.js",
+    "name": "TextInput",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "_transition-BE4MmVKm.js": {
+    "file": "assets/transition-BE4MmVKm.js",
+    "name": "transition",
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "resources/js/Pages/Auth/ConfirmPassword.jsx": {
+    "file": "assets/ConfirmPassword-CYy-bFHs.js",
+    "name": "ConfirmPassword",
+    "src": "resources/js/Pages/Auth/ConfirmPassword.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_TextInput-BBgGpk2F.js",
+      "_InputLabel-DOmDDI9w.js",
+      "_PrimaryButton-D-YA_JHL.js",
+      "_GuestLayout-Bj4KKYO7.js"
+    ]
+  },
+  "resources/js/Pages/Auth/ForgotPassword.jsx": {
+    "file": "assets/ForgotPassword-e_ZVvcG-.js",
+    "name": "ForgotPassword",
+    "src": "resources/js/Pages/Auth/ForgotPassword.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_TextInput-BBgGpk2F.js",
+      "_PrimaryButton-D-YA_JHL.js",
+      "_GuestLayout-Bj4KKYO7.js"
+    ]
+  },
+  "resources/js/Pages/Auth/Login.jsx": {
+    "file": "assets/Login-DFZiLMsV.js",
+    "name": "Login",
+    "src": "resources/js/Pages/Auth/Login.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_TextInput-BBgGpk2F.js",
+      "_InputLabel-DOmDDI9w.js",
+      "_PrimaryButton-D-YA_JHL.js",
+      "_GuestLayout-Bj4KKYO7.js"
+    ]
+  },
+  "resources/js/Pages/Auth/Register.jsx": {
+    "file": "assets/Register-Bd_4ohDT.js",
+    "name": "Register",
+    "src": "resources/js/Pages/Auth/Register.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_TextInput-BBgGpk2F.js",
+      "_InputLabel-DOmDDI9w.js",
+      "_PrimaryButton-D-YA_JHL.js",
+      "_GuestLayout-Bj4KKYO7.js"
+    ]
+  },
+  "resources/js/Pages/Auth/ResetPassword.jsx": {
+    "file": "assets/ResetPassword-DGwCl8UK.js",
+    "name": "ResetPassword",
+    "src": "resources/js/Pages/Auth/ResetPassword.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_TextInput-BBgGpk2F.js",
+      "_InputLabel-DOmDDI9w.js",
+      "_PrimaryButton-D-YA_JHL.js",
+      "_GuestLayout-Bj4KKYO7.js"
+    ]
+  },
+  "resources/js/Pages/Auth/VerifyEmail.jsx": {
+    "file": "assets/VerifyEmail-BrDKn2bB.js",
+    "name": "VerifyEmail",
+    "src": "resources/js/Pages/Auth/VerifyEmail.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_PrimaryButton-D-YA_JHL.js",
+      "_GuestLayout-Bj4KKYO7.js"
+    ]
+  },
+  "resources/js/Pages/Dashboard.jsx": {
+    "file": "assets/Dashboard-B7TmjgO4.js",
+    "name": "Dashboard",
+    "src": "resources/js/Pages/Dashboard.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AuthenticatedLayout--1Ug8FiI.js",
+      "_transition-BE4MmVKm.js"
+    ]
+  },
+  "resources/js/Pages/Medic/Dashboard.jsx": {
+    "file": "assets/Dashboard-DkSgM8hw.js",
+    "name": "Dashboard",
+    "src": "resources/js/Pages/Medic/Dashboard.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AuthenticatedLayout--1Ug8FiI.js",
+      "_transition-BE4MmVKm.js"
+    ]
+  },
+  "resources/js/Pages/Medic/Patients/Create.jsx": {
+    "file": "assets/Create-D_-h0h_-.js",
+    "name": "Create",
+    "src": "resources/js/Pages/Medic/Patients/Create.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AuthenticatedLayout--1Ug8FiI.js",
+      "_transition-BE4MmVKm.js"
+    ]
+  },
+  "resources/js/Pages/Medic/Patients/Index.jsx": {
+    "file": "assets/Index-BLiArXla.js",
+    "name": "Index",
+    "src": "resources/js/Pages/Medic/Patients/Index.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AuthenticatedLayout--1Ug8FiI.js",
+      "_transition-BE4MmVKm.js"
+    ]
+  },
+  "resources/js/Pages/Medic/Prescriptions/Create.jsx": {
+    "file": "assets/Create-DiJHBglD.js",
+    "name": "Create",
+    "src": "resources/js/Pages/Medic/Prescriptions/Create.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AuthenticatedLayout--1Ug8FiI.js",
+      "_transition-BE4MmVKm.js"
+    ]
+  },
+  "resources/js/Pages/Medic/Prescriptions/Index.jsx": {
+    "file": "assets/Index-DruHf-hg.js",
+    "name": "Index",
+    "src": "resources/js/Pages/Medic/Prescriptions/Index.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AuthenticatedLayout--1Ug8FiI.js",
+      "_transition-BE4MmVKm.js"
+    ]
+  },
+  "resources/js/Pages/Profile/Edit.jsx": {
+    "file": "assets/Edit-DgKmY8O6.js",
+    "name": "Edit",
+    "src": "resources/js/Pages/Profile/Edit.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_AuthenticatedLayout--1Ug8FiI.js",
+      "resources/js/Pages/Profile/Partials/DeleteUserForm.jsx",
+      "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx",
+      "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx",
+      "_transition-BE4MmVKm.js",
+      "_TextInput-BBgGpk2F.js",
+      "_InputLabel-DOmDDI9w.js",
+      "_PrimaryButton-D-YA_JHL.js"
+    ]
+  },
+  "resources/js/Pages/Profile/Partials/DeleteUserForm.jsx": {
+    "file": "assets/DeleteUserForm-CCKcmT_4.js",
+    "name": "DeleteUserForm",
+    "src": "resources/js/Pages/Profile/Partials/DeleteUserForm.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_TextInput-BBgGpk2F.js",
+      "_InputLabel-DOmDDI9w.js",
+      "_transition-BE4MmVKm.js"
+    ]
+  },
+  "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx": {
+    "file": "assets/UpdatePasswordForm-Ba7INevZ.js",
+    "name": "UpdatePasswordForm",
+    "src": "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_TextInput-BBgGpk2F.js",
+      "_InputLabel-DOmDDI9w.js",
+      "_PrimaryButton-D-YA_JHL.js",
+      "_transition-BE4MmVKm.js"
+    ]
+  },
+  "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx": {
+    "file": "assets/UpdateProfileInformationForm-SZLWtHvW.js",
+    "name": "UpdateProfileInformationForm",
+    "src": "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx",
+      "_TextInput-BBgGpk2F.js",
+      "_InputLabel-DOmDDI9w.js",
+      "_PrimaryButton-D-YA_JHL.js",
+      "_transition-BE4MmVKm.js"
+    ]
+  },
+  "resources/js/Pages/Welcome.jsx": {
+    "file": "assets/Welcome-JUAWfqrg.js",
+    "name": "Welcome",
+    "src": "resources/js/Pages/Welcome.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "resources/js/app.jsx"
+    ]
+  },
+  "resources/js/app.jsx": {
+    "file": "assets/app-mUe46e4a.js",
+    "name": "app",
+    "src": "resources/js/app.jsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "resources/js/Pages/Auth/ConfirmPassword.jsx",
+      "resources/js/Pages/Auth/ForgotPassword.jsx",
+      "resources/js/Pages/Auth/Login.jsx",
+      "resources/js/Pages/Auth/Register.jsx",
+      "resources/js/Pages/Auth/ResetPassword.jsx",
+      "resources/js/Pages/Auth/VerifyEmail.jsx",
+      "resources/js/Pages/Dashboard.jsx",
+      "resources/js/Pages/Medic/Dashboard.jsx",
+      "resources/js/Pages/Medic/Patients/Create.jsx",
+      "resources/js/Pages/Medic/Patients/Index.jsx",
+      "resources/js/Pages/Medic/Prescriptions/Create.jsx",
+      "resources/js/Pages/Medic/Prescriptions/Index.jsx",
+      "resources/js/Pages/Profile/Edit.jsx",
+      "resources/js/Pages/Profile/Partials/DeleteUserForm.jsx",
+      "resources/js/Pages/Profile/Partials/UpdatePasswordForm.jsx",
+      "resources/js/Pages/Profile/Partials/UpdateProfileInformationForm.jsx",
+      "resources/js/Pages/Welcome.jsx"
+    ],
+    "css": [
+      "assets/app-BJuQNBcV.css"
+    ]
+  }
+}
