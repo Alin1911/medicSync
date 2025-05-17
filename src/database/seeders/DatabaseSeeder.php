@@ -1,5 +1,8 @@
 <?php
+
 namespace Database\Seeders;
+
+use Laravel\Passport\Client;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 use App\Models\Prescription;
@@ -15,6 +18,18 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
+
+        if (!Client::where('name', 'Default Client')->exists()) {
+            Client::create([
+                'id' => 1,
+                'name' => 'Default Client',
+                'secret' => 'static-secret-key',
+                'redirect' => 'http://localhost',
+                'personal_access_client' => false,
+                'password_client' => true,
+                'revoked' => false,
+            ]);
+        }
         $medicRole = Role::firstOrCreate(['name' => 'medic']);
         $patientRole = Role::firstOrCreate(['name' => 'patient']);
         $pharmacyRole = Role::firstOrCreate(['name' => 'farmacist']);
@@ -5630,6 +5645,109 @@ Nam reprehenderit nobis architecto dolores praesentium.',
             'reteta_id' => $prescriptie->id,
             'timestamp' => '2025-05-16 12:06:34',
             'status' => 'programat'
+        ]);
+
+        Pharmacy::insert([
+            ['nume' => 'Farmacia HelpNet #1', 'lat' => 44.40058, 'lng' => 26.115182, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Sensiblu #2', 'lat' => 44.441189, 'lng' => 26.080534, 'program' => '24/24'],
+            ['nume' => 'Farmacia Sensiblu #3', 'lat' => 44.47633, 'lng' => 26.063169, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Catena #4', 'lat' => 44.453523, 'lng' => 26.068037, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Catena #5', 'lat' => 44.399782, 'lng' => 26.104407, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Belladonna #6', 'lat' => 44.395316, 'lng' => 26.079789, 'program' => '07:00 - 23:00'],
+            ['nume' => 'Farmacia Catena #7', 'lat' => 44.413792, 'lng' => 26.104745, 'program' => '24/24'],
+            ['nume' => 'Farmacia HelpNet #8', 'lat' => 44.421413, 'lng' => 26.062548, 'program' => '07:00 - 23:00'],
+            ['nume' => 'Farmacia Sensiblu #9', 'lat' => 44.447268, 'lng' => 26.05266, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Catena #10', 'lat' => 44.388518, 'lng' => 26.140244, 'program' => '24/24'],
+            ['nume' => 'Farmacia HelpNet #11', 'lat' => 44.405875, 'lng' => 26.152032, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Dona #12', 'lat' => 44.449625, 'lng' => 26.109101, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia Sensiblu #13', 'lat' => 44.456489, 'lng' => 26.067735, 'program' => '07:00 - 23:00'],
+            ['nume' => 'Farmacia Dona #14', 'lat' => 44.407985, 'lng' => 26.11837, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia Belladonna #15', 'lat' => 44.399858, 'lng' => 26.108235, 'program' => '24/24'],
+            ['nume' => 'Farmacia HelpNet #16', 'lat' => 44.398414, 'lng' => 26.118508, 'program' => '24/24'],
+            ['nume' => 'Farmacia Catena #17', 'lat' => 44.449914, 'lng' => 26.059938, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Dona #18', 'lat' => 44.476725, 'lng' => 26.148352, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Dona #19', 'lat' => 44.413134, 'lng' => 26.146714, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia HelpNet #20', 'lat' => 44.39731, 'lng' => 26.085401, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Dona #21', 'lat' => 44.394862, 'lng' => 26.128359, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia Catena #22', 'lat' => 44.418144, 'lng' => 26.102729, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia Sensiblu #23', 'lat' => 44.412097, 'lng' => 26.129844, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia HelpNet #24', 'lat' => 44.431872, 'lng' => 26.109184, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia HelpNet #25', 'lat' => 44.451002, 'lng' => 26.123183, 'program' => '24/24'],
+            ['nume' => 'Farmacia HelpNet #26', 'lat' => 44.454849, 'lng' => 26.109356, 'program' => '24/24'],
+            ['nume' => 'Farmacia Dona #27', 'lat' => 44.473568, 'lng' => 26.137459, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Belladonna #28', 'lat' => 44.388584, 'lng' => 26.088042, 'program' => '07:00 - 23:00'],
+            ['nume' => 'Farmacia Belladonna #29', 'lat' => 44.445559, 'lng' => 26.137553, 'program' => '24/24'],
+            ['nume' => 'Farmacia Dona #30', 'lat' => 44.438002, 'lng' => 26.057313, 'program' => '07:00 - 23:00'],
+            ['nume' => 'Farmacia HelpNet #31', 'lat' => 44.387398, 'lng' => 26.126822, 'program' => '24/24'],
+            ['nume' => 'Farmacia Sensiblu #32', 'lat' => 44.379945, 'lng' => 26.146711, 'program' => '24/24'],
+            ['nume' => 'Farmacia Belladonna #33', 'lat' => 44.47324, 'lng' => 26.111531, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Catena #34', 'lat' => 44.445581, 'lng' => 26.102804, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia Catena #35', 'lat' => 44.457549, 'lng' => 26.103714, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia HelpNet #36', 'lat' => 44.470347, 'lng' => 26.070153, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia Sensiblu #37', 'lat' => 44.421258, 'lng' => 26.056937, 'program' => '24/24'],
+            ['nume' => 'Farmacia HelpNet #38', 'lat' => 44.473416, 'lng' => 26.104407, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia HelpNet #39', 'lat' => 44.404196, 'lng' => 26.071209, 'program' => '24/24'],
+            ['nume' => 'Farmacia Dona #40', 'lat' => 44.460349, 'lng' => 26.052654, 'program' => '24/24'],
+            ['nume' => 'Farmacia Dona #41', 'lat' => 44.379521, 'lng' => 26.104583, 'program' => '07:00 - 23:00'],
+            ['nume' => 'Farmacia Belladonna #42', 'lat' => 44.419969, 'lng' => 26.056709, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Dona #43', 'lat' => 44.431192, 'lng' => 26.118712, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Sensiblu #44', 'lat' => 44.471732, 'lng' => 26.075114, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia Catena #45', 'lat' => 44.426555, 'lng' => 26.106071, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia Catena #46', 'lat' => 44.470381, 'lng' => 26.149519, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Catena #47', 'lat' => 44.439105, 'lng' => 26.111873, 'program' => '07:00 - 23:00'],
+            ['nume' => 'Farmacia HelpNet #48', 'lat' => 44.391478, 'lng' => 26.142331, 'program' => '24/24'],
+            ['nume' => 'Farmacia Dona #49', 'lat' => 44.467158, 'lng' => 26.071562, 'program' => '07:00 - 23:00'],
+            ['nume' => 'Farmacia Dona #50', 'lat' => 44.398152, 'lng' => 26.1301, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia HelpNet #51', 'lat' => 44.398641, 'lng' => 26.079779, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia Catena #52', 'lat' => 44.412429, 'lng' => 26.111634, 'program' => '24/24'],
+            ['nume' => 'Farmacia Dona #53', 'lat' => 44.459371, 'lng' => 26.141905, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia Dona #54', 'lat' => 44.425105, 'lng' => 26.054237, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia Catena #55', 'lat' => 44.459509, 'lng' => 26.127025, 'program' => '07:00 - 23:00'],
+            ['nume' => 'Farmacia Dona #56', 'lat' => 44.436584, 'lng' => 26.068751, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia Dona #57', 'lat' => 44.438938, 'lng' => 26.107395, 'program' => '24/24'],
+            ['nume' => 'Farmacia HelpNet #58', 'lat' => 44.469266, 'lng' => 26.056763, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Dona #59', 'lat' => 44.429568, 'lng' => 26.097444, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia HelpNet #60', 'lat' => 44.43783, 'lng' => 26.1363, 'program' => '07:00 - 23:00'],
+            ['nume' => 'Farmacia Dona #61', 'lat' => 44.470818, 'lng' => 26.135177, 'program' => '07:00 - 23:00'],
+            ['nume' => 'Farmacia Sensiblu #62', 'lat' => 44.46738, 'lng' => 26.10623, 'program' => '24/24'],
+            ['nume' => 'Farmacia HelpNet #63', 'lat' => 44.436282, 'lng' => 26.059688, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia Belladonna #64', 'lat' => 44.456783, 'lng' => 26.094408, 'program' => '24/24'],
+            ['nume' => 'Farmacia Dona #65', 'lat' => 44.39482, 'lng' => 26.12655, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia HelpNet #66', 'lat' => 44.440567, 'lng' => 26.150904, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Belladonna #67', 'lat' => 44.407391, 'lng' => 26.148404, 'program' => '07:00 - 23:00'],
+            ['nume' => 'Farmacia Belladonna #68', 'lat' => 44.399111, 'lng' => 26.124031, 'program' => '24/24'],
+            ['nume' => 'Farmacia HelpNet #69', 'lat' => 44.431094, 'lng' => 26.106751, 'program' => '07:00 - 23:00'],
+            ['nume' => 'Farmacia HelpNet #70', 'lat' => 44.413258, 'lng' => 26.080571, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia Catena #71', 'lat' => 44.459843, 'lng' => 26.061699, 'program' => '24/24'],
+            ['nume' => 'Farmacia Dona #72', 'lat' => 44.443396, 'lng' => 26.150871, 'program' => '24/24'],
+            ['nume' => 'Farmacia HelpNet #73', 'lat' => 44.421839, 'lng' => 26.087129, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia Dona #74', 'lat' => 44.475217, 'lng' => 26.122139, 'program' => '07:00 - 23:00'],
+            ['nume' => 'Farmacia Dona #75', 'lat' => 44.444801, 'lng' => 26.085092, 'program' => '24/24'],
+            ['nume' => 'Farmacia HelpNet #76', 'lat' => 44.475382, 'lng' => 26.076461, 'program' => '24/24'],
+            ['nume' => 'Farmacia Sensiblu #77', 'lat' => 44.427625, 'lng' => 26.080665, 'program' => '07:00 - 23:00'],
+            ['nume' => 'Farmacia HelpNet #78', 'lat' => 44.419995, 'lng' => 26.106394, 'program' => '24/24'],
+            ['nume' => 'Farmacia Belladonna #79', 'lat' => 44.444231, 'lng' => 26.129354, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia Catena #80', 'lat' => 44.44772, 'lng' => 26.063199, 'program' => '07:00 - 23:00'],
+            ['nume' => 'Farmacia Belladonna #81', 'lat' => 44.451865, 'lng' => 26.102538, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia HelpNet #82', 'lat' => 44.436849, 'lng' => 26.085149, 'program' => '24/24'],
+            ['nume' => 'Farmacia Catena #83', 'lat' => 44.462032, 'lng' => 26.150233, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Dona #84', 'lat' => 44.389018, 'lng' => 26.091945, 'program' => '24/24'],
+            ['nume' => 'Farmacia Belladonna #85', 'lat' => 44.43513, 'lng' => 26.062184, 'program' => '24/24'],
+            ['nume' => 'Farmacia Belladonna #86', 'lat' => 44.378616, 'lng' => 26.138225, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia HelpNet #87', 'lat' => 44.445315, 'lng' => 26.053191, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Catena #88', 'lat' => 44.431094, 'lng' => 26.059972, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia Catena #89', 'lat' => 44.463784, 'lng' => 26.145415, 'program' => '24/24'],
+            ['nume' => 'Farmacia HelpNet #90', 'lat' => 44.389828, 'lng' => 26.061752, 'program' => '07:00 - 23:00'],
+            ['nume' => 'Farmacia HelpNet #91', 'lat' => 44.465068, 'lng' => 26.053415, 'program' => '24/24'],
+            ['nume' => 'Farmacia HelpNet #92', 'lat' => 44.453657, 'lng' => 26.144356, 'program' => '24/24'],
+            ['nume' => 'Farmacia Catena #93', 'lat' => 44.429357, 'lng' => 26.092198, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Sensiblu #94', 'lat' => 44.428223, 'lng' => 26.103232, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia Catena #95', 'lat' => 44.436319, 'lng' => 26.11258, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Catena #96', 'lat' => 44.47392, 'lng' => 26.152207, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia Catena #97', 'lat' => 44.379049, 'lng' => 26.077798, 'program' => '09:00 - 18:00'],
+            ['nume' => 'Farmacia HelpNet #98', 'lat' => 44.383869, 'lng' => 26.136301, 'program' => '07:00 - 23:00'],
+            ['nume' => 'Farmacia HelpNet #99', 'lat' => 44.378132, 'lng' => 26.055221, 'program' => '08:00 - 22:00'],
+            ['nume' => 'Farmacia HelpNet #100', 'lat' => 44.443707, 'lng' => 26.13537, 'program' => '24/24'],
         ]);
     }
 }
