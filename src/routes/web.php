@@ -30,6 +30,8 @@ Route::middleware(['auth', 'role:medic'])->group(function () {
     Route::post('/patients', [PatientController::class, 'store'])->name('patients.store');
     Route::get('/patients/{patient}', [PatientController::class, 'show'])->name('patients.show');
     Route::get('/patients/{patient}/edit', [PatientController::class, 'edit'])->name('patients.edit');
+    Route::put('/patients/{patient}', [PatientController::class, 'update'])->name('patients.update'); // 🔥 asta lipsea
+
 
 
 

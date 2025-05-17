@@ -7,7 +7,13 @@ export default function CreatePatient() {
         email: '',
         password: '',
         password_confirmation: '',
+        cnp: '',
+        birthdate: '',
+        gender: '',
+        phone: '',
+        address: '',
     });
+
 
     const submit = (e) => {
         e.preventDefault();
@@ -60,6 +66,55 @@ export default function CreatePatient() {
                         className="w-full rounded border px-3 py-2"
                     />
                 </div>
+                <div className="mb-4">
+                    <input
+                        type="text"
+                        value={data.cnp}
+                        onChange={(e) => setData('cnp', e.target.value)}
+                        placeholder="CNP"
+                        className="w-full rounded border px-3 py-2"
+                    />
+                </div>
+                <div className="mb-4">
+                    <input
+                        type="date"
+                        value={data.birthdate}
+                        onChange={(e) => setData('birthdate', e.target.value)}
+                        placeholder="Data nașterii"
+                        className="w-full rounded border px-3 py-2"
+                    />
+                </div>
+                <div className="mb-4">
+                    <select
+                        value={data.gender}
+                        onChange={(e) => setData('gender', e.target.value)}
+                        className="w-full rounded border px-3 py-2"
+                    >
+                        <option value="">Gen</option>
+                        <option value="M">Masculin</option>
+                        <option value="F">Feminin</option>
+                        <option value="Alt">Alt</option>
+                    </select>
+                </div>
+                <div className="mb-4">
+                    <input
+                        type="text"
+                        value={data.phone}
+                        onChange={(e) => setData('phone', e.target.value)}
+                        placeholder="Telefon"
+                        className="w-full rounded border px-3 py-2"
+                    />
+                </div>
+                <div className="mb-4">
+                    <input
+                        type="text"
+                        value={data.address}
+                        onChange={(e) => setData('address', e.target.value)}
+                        placeholder="Adresă"
+                        className="w-full rounded border px-3 py-2"
+                    />
+                </div>
+
                 <button
                     type="submit"
                     disabled={processing}

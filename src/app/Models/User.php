@@ -42,14 +42,14 @@ class User extends Authenticatable
         ];
     }
 
-        /**
+    /**
      * Pacienții asociați acestui medic (prin rețete).
      */
     public function patients(): BelongsToMany
     {
         return $this->belongsToMany(User::class, 'prescriptions', 'medic_id', 'patient_id')
-                    ->withTimestamps()
-                    ->distinct();
+            ->withTimestamps()
+            ->distinct();
     }
 
     /**
@@ -74,5 +74,10 @@ class User extends Authenticatable
     public function notifications(): HasMany
     {
         return $this->hasMany(Notification::class);
+    }
+
+    public function patientDetail()
+    {
+        return $this->hasOne(PatientDetail::class);
     }
 }

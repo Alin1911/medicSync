@@ -2,7 +2,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, useForm } from '@inertiajs/react';
 
 export default function CreatePrescription({ patients, medications }) {
-    const { data, setData, post, processing, errors } = useForm({
+    const { data, setData, post, processing } = useForm({
         patient_id: '',
         issued_at: '',
         expires_at: '',
@@ -11,20 +11,45 @@ export default function CreatePrescription({ patients, medications }) {
     });
 
     const handleMedChange = (id, field, value) => {
-        setData('medications', (prev) => {
-            const updated = [...prev];
-            const index = updated.findIndex((m) => m.id === id);
-            if (index === -1) {
-                updated.push({ id, [field]: value });
-            } else {
-                updated[index][field] = value;
-            }
-            return updated;
-        });
+        const updated = [...data.medications];
+        const index = updated.findIndex((m) => m.id === id);
+
+        if (index === -1) {
+            updated.push({ id, [field]: value });
+        } else {
+            updated[index] = {
+                ...updated[index],
+                [field]: value,
+            };
+        }
+
+        setData('medications', updated);
+    };
+
+    const toggleMed = (id) => {
+        const current = [...data.medications];
+        const exists = current.find((m) => m.id === id);
+
+        if (exists) {
+            setData('medications', current.filter((m) => m.id !== id));
+        } else {
+            setData('medications', [...current, { id, frecventa: '', interval_ore: '' }]);
+        }
     };
 
     const submit = (e) => {
         e.preventDefault();
+
+        const validMedications = data.medications.filter(
+            (med) => med.id && med.frecventa && med.interval_ore
+        );
+
+        if (validMedications.length === 0) {
+            alert('Adaugă cel puțin un medicament complet.');
+            return;
+        }
+
+        setData('medications', validMedications);
         post(route('prescriptions.store'));
     };
 
@@ -98,61 +123,45 @@ export default function CreatePrescription({ patients, medications }) {
 
                 <h2 className="mb-2 text-lg font-semibold">Medicamente</h2>
                 <div className="space-y-3">
-                    {medications.map((med) => (
-                        <div key={med.id} className="rounded border p-4">
-                            <label className="flex items-center gap-2 font-medium">
-                                <input
-                                    type="checkbox"
-                                    onChange={(e) => {
-                                        if (e.target.checked) {
-                                            handleMedChange(
-                                                med.id,
-                                                'id',
-                                                med.id,
-                                            );
-                                        } else {
-                                            setData(
-                                                'medications',
-                                                Array.isArray(data.medications)
-                                                    ? data.medications.filter(
-                                                          (m) =>
-                                                              m.id !== med.id,
-                                                      )
-                                                    : [],
-                                            );
-                                        }
-                                    }}
-                                />{' '}
-                                {med.nume}
-                            </label>
-                            <div className="mt-2 flex gap-2">
-                                <input
-                                    type="number"
-                                    placeholder="Frecvență"
-                                    onChange={(e) =>
-                                        handleMedChange(
-                                            med.id,
-                                            'frecventa',
-                                            e.target.value,
-                                        )
-                                    }
-                                    className="w-1/2 rounded border px-2 py-1"
-                                />
-                                <input
-                                    type="number"
-                                    placeholder="Interval ore"
-                                    onChange={(e) =>
-                                        handleMedChange(
-                                            med.id,
-                                            'interval_ore',
-                                            e.target.value,
-                                        )
-                                    }
-                                    className="w-1/2 rounded border px-2 py-1"
-                                />
+                    {medications.map((med) => {
+                        const selected = data.medications.some((m) => m.id === med.id);
+                        const current = data.medications.find((m) => m.id === med.id) || {};
+                        return (
+                            <div key={med.id} className="rounded border p-4">
+                                <label className="flex items-center gap-2 font-medium">
+                                    <input
+                                        type="checkbox"
+                                        checked={selected}
+                                        onChange={() => toggleMed(med.id)}
+                                    />
+                                    {med.nume}
+                                </label>
+
+                                {selected && (
+                                    <div className="mt-2 flex gap-2">
+                                        <input
+                                            type="number"
+                                            placeholder="Frecvență"
+                                            value={current.frecventa || ''}
+                                            onChange={(e) =>
+                                                handleMedChange(med.id, 'frecventa', e.target.value)
+                                            }
+                                            className="w-1/2 rounded border px-2 py-1"
+                                        />
+                                        <input
+                                            type="number"
+                                            placeholder="Interval ore"
+                                            value={current.interval_ore || ''}
+                                            onChange={(e) =>
+                                                handleMedChange(med.id, 'interval_ore', e.target.value)
+                                            }
+                                            className="w-1/2 rounded border px-2 py-1"
+                                        />
+                                    </div>
+                                )}
                             </div>
-                        </div>
-                    ))}
+                        );
+                    })}
                 </div>
 
                 <button
@@ -162,6 +171,11 @@ export default function CreatePrescription({ patients, medications }) {
                 >
                     Salvează Rețeta
                 </button>
+
+                {/* Debug */}
+                <pre className="mt-4 bg-gray-100 text-xs p-2 rounded">
+                    {JSON.stringify(data.medications, null, 2)}
+                </pre>
             </form>
         </AuthenticatedLayout>
     );
