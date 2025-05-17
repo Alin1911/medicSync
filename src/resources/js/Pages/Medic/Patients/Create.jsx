@@ -14,7 +14,6 @@ export default function CreatePatient() {
         address: '',
     });
 
-
     const submit = (e) => {
         e.preventDefault();
         post(route('patients.store'));
@@ -23,104 +22,134 @@ export default function CreatePatient() {
     return (
         <AuthenticatedLayout>
             <Head title="Adaugă pacient" />
+
             <form
                 onSubmit={submit}
-                className="mx-auto max-w-md rounded bg-white p-6 shadow"
+                className="mx-auto max-w-md rounded-lg border border-gray-200 bg-white p-8 shadow-lg"
+                noValidate
             >
-                <h1 className="mb-4 text-xl font-bold">Adaugă pacient</h1>
-                <div className="mb-4">
-                    <input
-                        type="text"
-                        value={data.name}
-                        onChange={(e) => setData('name', e.target.value)}
-                        placeholder="Nume"
-                        className="w-full rounded border px-3 py-2"
-                    />
-                </div>
-                <div className="mb-4">
-                    <input
-                        type="email"
-                        value={data.email}
-                        onChange={(e) => setData('email', e.target.value)}
-                        placeholder="Email"
-                        className="w-full rounded border px-3 py-2"
-                    />
-                </div>
-                <div className="mb-4">
-                    <input
-                        type="password"
-                        value={data.password}
-                        onChange={(e) => setData('password', e.target.value)}
-                        placeholder="Parolă"
-                        className="w-full rounded border px-3 py-2"
-                    />
-                </div>
-                <div className="mb-4">
-                    <input
-                        type="password"
-                        value={data.password_confirmation}
-                        onChange={(e) =>
-                            setData('password_confirmation', e.target.value)
-                        }
-                        placeholder="Confirmă parolă"
-                        className="w-full rounded border px-3 py-2"
-                    />
-                </div>
-                <div className="mb-4">
-                    <input
-                        type="text"
-                        value={data.cnp}
-                        onChange={(e) => setData('cnp', e.target.value)}
-                        placeholder="CNP"
-                        className="w-full rounded border px-3 py-2"
-                    />
-                </div>
-                <div className="mb-4">
-                    <input
-                        type="date"
-                        value={data.birthdate}
-                        onChange={(e) => setData('birthdate', e.target.value)}
-                        placeholder="Data nașterii"
-                        className="w-full rounded border px-3 py-2"
-                    />
-                </div>
-                <div className="mb-4">
+                <h1 className="mb-6 text-center text-2xl font-extrabold text-gray-900">
+                    Adaugă pacient
+                </h1>
+
+                {/* Helper to render inputs with error */}
+                {[
+                    {
+                        label: 'Nume',
+                        type: 'text',
+                        key: 'name',
+                        placeholder: 'Nume complet',
+                    },
+                    {
+                        label: 'Email',
+                        type: 'email',
+                        key: 'email',
+                        placeholder: 'Email',
+                    },
+                    {
+                        label: 'Parolă',
+                        type: 'password',
+                        key: 'password',
+                        placeholder: 'Parolă',
+                    },
+                    {
+                        label: 'Confirmă parolă',
+                        type: 'password',
+                        key: 'password_confirmation',
+                        placeholder: 'Confirmă parolă',
+                    },
+                    {
+                        label: 'CNP',
+                        type: 'text',
+                        key: 'cnp',
+                        placeholder: 'CNP',
+                    },
+                    { label: 'Data nașterii', type: 'date', key: 'birthdate' },
+                    {
+                        label: 'Telefon',
+                        type: 'text',
+                        key: 'phone',
+                        placeholder: 'Telefon',
+                    },
+                    {
+                        label: 'Adresă',
+                        type: 'text',
+                        key: 'address',
+                        placeholder: 'Adresă',
+                    },
+                ].map(({ label, type, key, placeholder }) => (
+                    <div key={key} className="mb-5">
+                        <label
+                            htmlFor={key}
+                            className="mb-1 block text-sm font-semibold text-gray-700"
+                        >
+                            {label}
+                        </label>
+                        <input
+                            id={key}
+                            type={type}
+                            value={data[key]}
+                            onChange={(e) => setData(key, e.target.value)}
+                            placeholder={placeholder}
+                            className={`w-full rounded-md border px-4 py-2 transition focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                                errors[key]
+                                    ? 'border-red-500 focus:ring-red-500'
+                                    : 'border-gray-300'
+                            }`}
+                            aria-invalid={errors[key] ? 'true' : 'false'}
+                            aria-describedby={`${key}-error`}
+                        />
+                        {errors[key] && (
+                            <p
+                                id={`${key}-error`}
+                                className="mt-1 text-xs font-medium text-red-600"
+                            >
+                                {errors[key]}
+                            </p>
+                        )}
+                    </div>
+                ))}
+
+                <div className="mb-5">
+                    <label
+                        htmlFor="gender"
+                        className="mb-1 block text-sm font-semibold text-gray-700"
+                    >
+                        Gen
+                    </label>
                     <select
+                        id="gender"
                         value={data.gender}
                         onChange={(e) => setData('gender', e.target.value)}
-                        className="w-full rounded border px-3 py-2"
+                        className={`w-full rounded-md border px-4 py-2 transition focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                            errors.gender
+                                ? 'border-red-500 focus:ring-red-500'
+                                : 'border-gray-300'
+                        }`}
+                        aria-invalid={errors.gender ? 'true' : 'false'}
+                        aria-describedby="gender-error"
                     >
-                        <option value="">Gen</option>
+                        <option value="">Selectează gen</option>
                         <option value="M">Masculin</option>
                         <option value="F">Feminin</option>
                         <option value="Alt">Alt</option>
                     </select>
-                </div>
-                <div className="mb-4">
-                    <input
-                        type="text"
-                        value={data.phone}
-                        onChange={(e) => setData('phone', e.target.value)}
-                        placeholder="Telefon"
-                        className="w-full rounded border px-3 py-2"
-                    />
-                </div>
-                <div className="mb-4">
-                    <input
-                        type="text"
-                        value={data.address}
-                        onChange={(e) => setData('address', e.target.value)}
-                        placeholder="Adresă"
-                        className="w-full rounded border px-3 py-2"
-                    />
+                    {errors.gender && (
+                        <p
+                            id="gender-error"
+                            className="mt-1 text-xs font-medium text-red-600"
+                        >
+                            {errors.gender}
+                        </p>
+                    )}
                 </div>
 
                 <button
                     type="submit"
                     disabled={processing}
-                    className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+                    className={`w-full rounded-md bg-blue-600 px-6 py-3 font-semibold text-white transition hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50`}
                 >
-                    Salvează
+                    {processing ? 'Se salvează...' : 'Salvează'}
                 </button>
             </form>
         </AuthenticatedLayout>

@@ -1,5 +1,7 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, useForm } from '@inertiajs/react';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 export default function CreatePrescription({ patients, medications }) {
     const { data, setData, post, processing } = useForm({
@@ -9,6 +11,15 @@ export default function CreatePrescription({ patients, medications }) {
         details: '',
         medications: [],
     });
+
+    // Since react-datepicker works with JS Date objects, let's sync it with inertia's string dates
+    // Convert string date to Date object for react-datepicker, fallback null if empty
+    const parseDate = (dateStr) => (dateStr ? new Date(dateStr) : null);
+
+    // Handle date changes converting Date back to ISO string for Inertia form
+    const handleDateChange = (field, date) => {
+        setData(field, date ? date.toISOString().slice(0, 10) : '');
+    };
 
     const handleMedChange = (id, field, value) => {
         const updated = [...data.medications];
@@ -31,9 +42,15 @@ export default function CreatePrescription({ patients, medications }) {
         const exists = current.find((m) => m.id === id);
 
         if (exists) {
-            setData('medications', current.filter((m) => m.id !== id));
+            setData(
+                'medications',
+                current.filter((m) => m.id !== id),
+            );
         } else {
-            setData('medications', [...current, { id, frecventa: '', interval_ore: '' }]);
+            setData('medications', [
+                ...current,
+                { id, frecventa: '', interval_ore: '' },
+            ]);
         }
     };
 
@@ -41,7 +58,7 @@ export default function CreatePrescription({ patients, medications }) {
         e.preventDefault();
 
         const validMedications = data.medications.filter(
-            (med) => med.id && med.frecventa && med.interval_ore
+            (med) => med.id && med.frecventa && med.interval_ore,
         );
 
         if (validMedications.length === 0) {
@@ -85,26 +102,28 @@ export default function CreatePrescription({ patients, medications }) {
                         <label className="mb-1 block text-sm font-medium">
                             Data emiterii
                         </label>
-                        <input
-                            type="date"
-                            value={data.issued_at}
-                            onChange={(e) =>
-                                setData('issued_at', e.target.value)
+                        <DatePicker
+                            selected={parseDate(data.issued_at)}
+                            onChange={(date) =>
+                                handleDateChange('issued_at', date)
                             }
+                            dateFormat="yyyy-MM-dd"
                             className="w-full rounded border px-3 py-2"
+                            placeholderText="Selectează data"
                         />
                     </div>
                     <div className="w-full">
                         <label className="mb-1 block text-sm font-medium">
                             Data expirării
                         </label>
-                        <input
-                            type="date"
-                            value={data.expires_at}
-                            onChange={(e) =>
-                                setData('expires_at', e.target.value)
+                        <DatePicker
+                            selected={parseDate(data.expires_at)}
+                            onChange={(date) =>
+                                handleDateChange('expires_at', date)
                             }
+                            dateFormat="yyyy-MM-dd"
                             className="w-full rounded border px-3 py-2"
+                            placeholderText="Selectează data"
                         />
                     </div>
                 </div>
@@ -124,8 +143,11 @@ export default function CreatePrescription({ patients, medications }) {
                 <h2 className="mb-2 text-lg font-semibold">Medicamente</h2>
                 <div className="space-y-3">
                     {medications.map((med) => {
-                        const selected = data.medications.some((m) => m.id === med.id);
-                        const current = data.medications.find((m) => m.id === med.id) || {};
+                        const selected = data.medications.some(
+                            (m) => m.id === med.id,
+                        );
+                        const current =
+                            data.medications.find((m) => m.id === med.id) || {};
                         return (
                             <div key={med.id} className="rounded border p-4">
                                 <label className="flex items-center gap-2 font-medium">
@@ -144,7 +166,11 @@ export default function CreatePrescription({ patients, medications }) {
                                             placeholder="Frecvență"
                                             value={current.frecventa || ''}
                                             onChange={(e) =>
-                                                handleMedChange(med.id, 'frecventa', e.target.value)
+                                                handleMedChange(
+                                                    med.id,
+                                                    'frecventa',
+                                                    e.target.value,
+                                                )
                                             }
                                             className="w-1/2 rounded border px-2 py-1"
                                         />
@@ -153,7 +179,11 @@ export default function CreatePrescription({ patients, medications }) {
                                             placeholder="Interval ore"
                                             value={current.interval_ore || ''}
                                             onChange={(e) =>
-                                                handleMedChange(med.id, 'interval_ore', e.target.value)
+                                                handleMedChange(
+                                                    med.id,
+                                                    'interval_ore',
+                                                    e.target.value,
+                                                )
                                             }
                                             className="w-1/2 rounded border px-2 py-1"
                                         />
@@ -173,7 +203,7 @@ export default function CreatePrescription({ patients, medications }) {
                 </button>
 
                 {/* Debug */}
-                <pre className="mt-4 bg-gray-100 text-xs p-2 rounded">
+                <pre className="mt-4 rounded bg-gray-100 p-2 text-xs">
                     {JSON.stringify(data.medications, null, 2)}
                 </pre>
             </form>

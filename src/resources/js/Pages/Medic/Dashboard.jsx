@@ -1,5 +1,6 @@
 import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, Link } from '@inertiajs/react';
+import { FaEdit, FaEye } from 'react-icons/fa';
 
 export default function Dashboard({ patients, prescriptions }) {
     return (
@@ -7,43 +8,67 @@ export default function Dashboard({ patients, prescriptions }) {
             <Head title="Dashboard Medic" />
 
             <div className="mx-auto max-w-6xl p-6">
-                <h1 className="mb-6 text-3xl font-bold text-gray-800">
+                <h1 className="mb-8 text-3xl font-extrabold tracking-tight text-gray-900">
                     Dashboard Medic
                 </h1>
 
-                <section className="mb-10">
-                    <h2 className="mb-4 text-2xl font-semibold">Pacienți</h2>
-                    <div className="overflow-x-auto rounded shadow">
-                        <table className="min-w-full bg-white">
-                            <thead className="bg-gray-100">
+                {/* Pacienți */}
+                <section className="mb-12">
+                    <h2 className="mb-6 text-2xl font-semibold text-gray-800">
+                        Pacienți
+                    </h2>
+                    <div className="overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
+                        <table className="min-w-full divide-y divide-gray-200 bg-white">
+                            <thead className="bg-gray-50">
                                 <tr>
-                                    <th className="border-b px-4 py-2 text-left">
-                                        Nume
-                                    </th>
-                                    <th className="border-b px-4 py-2 text-left">
-                                        Email
-                                    </th>
-                                    <th className="border-b px-4 py-2 text-left">
-                                        Acțiuni
-                                    </th>
+                                    {['Nume', 'Email', 'Acțiuni'].map(
+                                        (header) => (
+                                            <th
+                                                key={header}
+                                                scope="col"
+                                                className="whitespace-nowrap px-6 py-3 text-left text-sm font-semibold text-gray-700"
+                                            >
+                                                {header}
+                                            </th>
+                                        ),
+                                    )}
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className="divide-y divide-gray-100">
+                                {patients.length === 0 && (
+                                    <tr>
+                                        <td
+                                            colSpan={3}
+                                            className="px-6 py-4 text-center italic text-gray-500"
+                                        >
+                                            Niciun pacient găsit.
+                                        </td>
+                                    </tr>
+                                )}
                                 {patients.map((p) => (
                                     <tr
                                         key={p.id}
-                                        className="border-b hover:bg-gray-50"
+                                        className="transition-colors duration-150 hover:bg-gray-50"
                                     >
-                                        <td className="px-4 py-2">{p.name}</td>
-                                        <td className="px-4 py-2">{p.email}</td>
-                                        <td className="space-x-2 px-4 py-2">
+                                        <td className="whitespace-nowrap px-6 py-4 font-medium text-gray-900">
+                                            {p.name}
+                                        </td>
+                                        <td
+                                            className="max-w-xs truncate px-6 py-4 text-gray-700"
+                                            title={p.email}
+                                        >
+                                            {p.email || '—'}
+                                        </td>
+                                        <td className="flex gap-4 whitespace-nowrap px-6 py-4 text-sm">
                                             <Link
                                                 href={route(
                                                     'patients.edit',
                                                     p.id,
                                                 )}
-                                                className="text-sm text-blue-600 hover:underline"
+                                                className="inline-flex items-center gap-1 rounded px-3 py-1 text-yellow-600 transition hover:bg-yellow-100"
+                                                title="Editează pacient"
                                             >
+                                                <FaEdit />
                                                 Editează
                                             </Link>
                                             <Link
@@ -51,8 +76,10 @@ export default function Dashboard({ patients, prescriptions }) {
                                                     'patients.show',
                                                     p.id,
                                                 )}
-                                                className="text-sm text-gray-700 hover:underline"
+                                                className="inline-flex items-center gap-1 rounded px-3 py-1 text-blue-600 transition hover:bg-blue-100"
+                                                title="Vezi detalii pacient"
                                             >
+                                                <FaEye />
                                                 Vezi
                                             </Link>
                                         </td>
@@ -63,45 +90,67 @@ export default function Dashboard({ patients, prescriptions }) {
                     </div>
                 </section>
 
+                {/* Rețete */}
                 <section>
-                    <h2 className="mb-4 text-2xl font-semibold">Rețete</h2>
-                    <div className="overflow-x-auto rounded shadow">
-                        <table className="min-w-full bg-white">
-                            <thead className="bg-gray-100">
+                    <h2 className="mb-6 text-2xl font-semibold text-gray-800">
+                        Rețete
+                    </h2>
+                    <div className="overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
+                        <table className="min-w-full divide-y divide-gray-200 bg-white">
+                            <thead className="bg-gray-50">
                                 <tr>
-                                    <th className="border-b px-4 py-2 text-left">
-                                        Detalii
-                                    </th>
-                                    <th className="border-b px-4 py-2 text-left">
-                                        Număr medicamente
-                                    </th>
-                                    <th className="border-b px-4 py-2 text-left">
-                                        Acțiuni
-                                    </th>
+                                    {[
+                                        'Detalii',
+                                        'Număr medicamente',
+                                        'Acțiuni',
+                                    ].map((header) => (
+                                        <th
+                                            key={header}
+                                            scope="col"
+                                            className="whitespace-nowrap px-6 py-3 text-left text-sm font-semibold text-gray-700"
+                                        >
+                                            {header}
+                                        </th>
+                                    ))}
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className="divide-y divide-gray-100">
+                                {prescriptions.length === 0 && (
+                                    <tr>
+                                        <td
+                                            colSpan={3}
+                                            className="px-6 py-4 text-center italic text-gray-500"
+                                        >
+                                            Nicio rețetă găsită.
+                                        </td>
+                                    </tr>
+                                )}
                                 {prescriptions.map((p) => (
                                     <tr
                                         key={p.id}
-                                        className="border-b hover:bg-gray-50"
+                                        className="transition-colors duration-150 hover:bg-gray-50"
                                     >
-                                        <td className="px-4 py-2">
+                                        <td
+                                            className="max-w-xs truncate px-6 py-4 text-gray-700"
+                                            title={p.details || ''}
+                                        >
                                             {p.details || '—'}
                                         </td>
-                                        <td className="px-4 py-2">
+                                        <td className="whitespace-nowrap px-6 py-4 text-gray-700">
                                             {Array.isArray(p.medications)
                                                 ? p.medications.length
                                                 : 0}
                                         </td>
-                                        <td className="space-x-2 px-4 py-2">
+                                        <td className="whitespace-nowrap px-6 py-4 text-sm">
                                             <Link
                                                 href={route(
                                                     'prescriptions.show',
                                                     p.id,
                                                 )}
-                                                className="text-sm text-gray-700 hover:underline"
+                                                className="inline-flex items-center gap-1 rounded px-3 py-1 text-blue-600 transition hover:bg-blue-100"
+                                                title="Vezi detalii rețetă"
                                             >
+                                                <FaEye />
                                                 Vezi
                                             </Link>
                                         </td>

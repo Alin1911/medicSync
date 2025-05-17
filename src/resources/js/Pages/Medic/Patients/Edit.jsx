@@ -2,7 +2,7 @@ import AuthenticatedLayout from '@/Layouts/AuthenticatedLayout';
 import { Head, useForm } from '@inertiajs/react';
 
 export default function EditPatient({ patient }) {
-    const { data, setData, put, processing } = useForm({
+    const { data, setData, put, processing, errors } = useForm({
         name: patient.name,
         email: patient.email,
         cnp: patient.patient_detail?.cnp || '',
@@ -14,7 +14,6 @@ export default function EditPatient({ patient }) {
 
     const submit = (e) => {
         e.preventDefault();
-
         put(route('patients.update', patient.id));
     };
 
@@ -24,76 +23,113 @@ export default function EditPatient({ patient }) {
 
             <form
                 onSubmit={submit}
-                className="mx-auto max-w-md rounded bg-white p-6 shadow"
+                className="mx-auto max-w-md rounded-lg bg-white p-8 shadow-md"
             >
-                <h1 className="mb-4 text-xl font-bold">Editează pacient</h1>
+                <h1 className="mb-6 text-2xl font-extrabold text-gray-900">
+                    Editează pacient
+                </h1>
 
-                <div className="space-y-4">
-                    <input
-                        type="text"
-                        value={data.name}
-                        onChange={(e) => setData('name', e.target.value)}
-                        placeholder="Nume"
-                        className="w-full rounded border px-3 py-2"
-                    />
+                <div className="space-y-5">
+                    {[
+                        {
+                            label: 'Nume',
+                            type: 'text',
+                            name: 'name',
+                            placeholder: 'Nume',
+                        },
+                        {
+                            label: 'Email',
+                            type: 'email',
+                            name: 'email',
+                            placeholder: 'Email',
+                        },
+                        {
+                            label: 'CNP',
+                            type: 'text',
+                            name: 'cnp',
+                            placeholder: 'CNP',
+                        },
+                        {
+                            label: 'Data nașterii',
+                            type: 'date',
+                            name: 'birthdate',
+                        },
+                        {
+                            label: 'Telefon',
+                            type: 'text',
+                            name: 'phone',
+                            placeholder: 'Telefon',
+                        },
+                        {
+                            label: 'Adresă',
+                            type: 'text',
+                            name: 'address',
+                            placeholder: 'Adresă',
+                        },
+                    ].map(({ label, type, name, placeholder }) => (
+                        <div key={name} className="flex flex-col">
+                            <label
+                                className="mb-1 text-sm font-medium text-gray-700"
+                                htmlFor={name}
+                            >
+                                {label}
+                            </label>
+                            <input
+                                id={name}
+                                type={type}
+                                value={data[name]}
+                                onChange={(e) => setData(name, e.target.value)}
+                                placeholder={placeholder || ''}
+                                className={`rounded border px-3 py-2 text-gray-900 placeholder-gray-400 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                                    errors[name]
+                                        ? 'border-red-500'
+                                        : 'border-gray-300'
+                                }`}
+                            />
+                            {errors[name] && (
+                                <span className="mt-1 text-xs text-red-600">
+                                    {errors[name]}
+                                </span>
+                            )}
+                        </div>
+                    ))}
 
-                    <input
-                        type="email"
-                        value={data.email}
-                        onChange={(e) => setData('email', e.target.value)}
-                        placeholder="Email"
-                        className="w-full rounded border px-3 py-2"
-                    />
-
-                    <input
-                        type="text"
-                        value={data.cnp}
-                        onChange={(e) => setData('cnp', e.target.value)}
-                        placeholder="CNP"
-                        className="w-full rounded border px-3 py-2"
-                    />
-
-                    <input
-                        type="date"
-                        value={data.birthdate}
-                        onChange={(e) => setData('birthdate', e.target.value)}
-                        className="w-full rounded border px-3 py-2"
-                    />
-
-                    <select
-                        value={data.gender}
-                        onChange={(e) => setData('gender', e.target.value)}
-                        className="w-full rounded border px-3 py-2"
-                    >
-                        <option value="">Gen</option>
-                        <option value="M">Masculin</option>
-                        <option value="F">Feminin</option>
-                        <option value="Alt">Alt</option>
-                    </select>
-
-                    <input
-                        type="text"
-                        value={data.phone}
-                        onChange={(e) => setData('phone', e.target.value)}
-                        placeholder="Telefon"
-                        className="w-full rounded border px-3 py-2"
-                    />
-
-                    <input
-                        type="text"
-                        value={data.address}
-                        onChange={(e) => setData('address', e.target.value)}
-                        placeholder="Adresă"
-                        className="w-full rounded border px-3 py-2"
-                    />
+                    <div className="flex flex-col">
+                        <label
+                            className="mb-1 text-sm font-medium text-gray-700"
+                            htmlFor="gender"
+                        >
+                            Gen
+                        </label>
+                        <select
+                            id="gender"
+                            value={data.gender}
+                            onChange={(e) => setData('gender', e.target.value)}
+                            className={`rounded border px-3 py-2 text-gray-900 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+                                errors.gender
+                                    ? 'border-red-500'
+                                    : 'border-gray-300'
+                            }`}
+                        >
+                            <option value="">Selectează genul</option>
+                            <option value="M">Masculin</option>
+                            <option value="F">Feminin</option>
+                            <option value="Alt">Alt</option>
+                        </select>
+                        {errors.gender && (
+                            <span className="mt-1 text-xs text-red-600">
+                                {errors.gender}
+                            </span>
+                        )}
+                    </div>
                 </div>
 
                 <button
                     type="submit"
                     disabled={processing}
-                    className="mt-6 rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+                    className="mt-8 w-full rounded bg-blue-600 px-4 py-3 font-semibold text-white transition hover:bg-blue-700 disabled:opacity-50"
                 >
-                    Salvează
+                    {processing ? 'Se salvează...' : 'Salvează'}
                 </button>
             </form>
         </AuthenticatedLayout>
