@@ -10,6 +10,7 @@ use App\Models\Medication;
 use App\Models\Pharmacy;
 use App\Models\QRCode;
 use App\Models\Notification;
+use App\Models\PatientDetail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 use Spatie\Permission\Models\Role;
@@ -788,6 +789,17 @@ class DatabaseSeeder extends Seeder
         $user = User::create(['name' => 'Ioanina Ababei', 'email' => 'gheorghitadumitrescu@acasa.ro', 'cnp' => '287649157766', 'password' => Hash::make('parola123')]);
         $user->assignRole($patientRole);
         $pacienti->push($user);
+
+        foreach ($pacienti as $pacient) {
+            PatientDetail::create([
+                'user_id' => $pacient->id,
+                'cnp' => $pacient->cnp,
+                'birthdate' => now()->subYears(rand(18, 80))->format('Y-m-d'),
+                'gender' => rand(0, 1) ? 'Masculin' : 'Feminin',
+                'phone' => '07' . rand(10000000, 99999999),
+                'address' => 'Strada Exemplu nr. ' . rand(1, 100) . ', Oraș'
+            ]);
+        }
         // Farmacii
         $farmacii = collect();
         $user = User::create(['name' => 'Florea', 'email' => 'mmazilescu@email.ro', 'cnp' => '387228510998', 'password' => Hash::make('parola123')]);

@@ -28,7 +28,6 @@ class PatientController extends Controller
             'email' => 'sometimes|email|max:255|unique:users,email,' . $user->id,
             'cnp' => 'sometimes|string|max:13',
             'birthdate' => 'sometimes|date',
-            'gender' => 'sometimes|in:male,female,other',
             'phone' => 'sometimes|string|max:20',
             'address' => 'sometimes|string|max:255',
         ]);
