@@ -53,6 +53,14 @@ export default function AuthenticatedLayout({ header, children }) {
                                         >
                                             Rețete
                                         </NavLink>
+                                        <NavLink
+                                            href={route('extra-info')}
+                                            active={route().current(
+                                                'extra-info',
+                                            )}
+                                        >
+                                            Get pacient extra info
+                                        </NavLink>
                                     </>
                                 ) : (
                                     <NavLink
@@ -181,6 +189,12 @@ export default function AuthenticatedLayout({ header, children }) {
                                     )}
                                 >
                                     Rețete
+                                </ResponsiveNavLink>
+                                <ResponsiveNavLink
+                                    href={route('extra-info')}
+                                    active={route().current('extra-info')}
+                                >
+                                    Get pacient extra info
                                 </ResponsiveNavLink>
                             </>
                         ) : (

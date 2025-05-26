@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ExtraDataController;
 use App\Http\Controllers\MedicDashboardController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PrescriptionController;
@@ -31,6 +32,7 @@ Route::middleware(['auth', 'role:medic'])->group(function () {
     Route::get('/patients/{patient}', [PatientController::class, 'show'])->name('patients.show');
     Route::get('/patients/{patient}/edit', [PatientController::class, 'edit'])->name('patients.edit');
     Route::put('/patients/{patient}', [PatientController::class, 'update'])->name('patients.update'); // 🔥 asta lipsea
+Route::get('/extra-data', [ExtraDataController::class, 'index'])->name('extra-info');
 
 
 
